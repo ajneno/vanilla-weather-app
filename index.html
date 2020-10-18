@@ -16,7 +16,9 @@
   </head>
   <body>
     <div class="container">
+      <div class="weather-app-wrapper">
     <div class="weather-app">
+<div class="overview">
       <h1>Lisboa</h1>
       <ul>
       <li class="day" id="date">
@@ -26,16 +28,23 @@ Mon 31 Aug
         Sunny
       </li>
       </ul>
-    
+    </div>
       <div class="row">
         <div class="col-6">
-          <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Sunny Icon" />
+          <div class="clearfix weather-temperature">
+          <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Sunny Icon" class="float-left"/>
       
-          <spam class="temperature" id="temperature"> 23</spam>
-          <spam class="units"><a href id="celsius-link">ºC</a> |
+          <div class="float-left">
+            <strong>
+          <spam class="temperature" id="temperature">23</spam></strong>
+            <small class="units">
+          <spam><a href id="celsius-link">ºC</a> |
             <a href id="fahrenheit-link"> F</a></spam>
+            </small>
+          
+            </div>
         </div>
-    
+    </div>
         <div class="col-6">
           <ul>
             <li>Precipitation:0%</li>
@@ -127,15 +136,15 @@ Mon 31 Aug
         </div>
       </div>
 
-      <small class="coderid">
+  
+    </div>
+    <small class="coderid">
       <a href="https://github.com/ajneno/weather-app-proj" target="_blank">
         Open-source code
       </a>, by Ana Neno
      
     </small>
-    </div>
-
-
+</div>
     </div>
     
  

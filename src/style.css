@@ -11,13 +11,17 @@ h1 {
 }
 
 ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  text-transform: capitalize;
   list-style: none;
   color: rgb(70, 67, 67);
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
-  margin: 0;
-  padding: 0;
 }
 
 .weather-app-wrapper {

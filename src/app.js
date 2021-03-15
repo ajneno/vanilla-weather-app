@@ -9,7 +9,7 @@ hours=`0 ${hours}`;
 let minutes=date.getMinutes ();
 if (minutes<10){
 
-  minutes=`0 ${minutes}`;
+  minutes=`0${minutes}`;
 }
 
 
@@ -22,25 +22,47 @@ return `${day} ${hours}:${minutes}`
   
   
   function displayTemperature(response){
-  
+    
 let temperatureElement= document.querySelector("#temperature");
-let cityElement=document.querySelector("#city");
+let cityElement= document.querySelector("#city");
 let descriptionElement=document.querySelector ("#description");
 let humidityElement=document.querySelector ("#humidity");
 let windElement=document.querySelector ("#wind");
 let dateElement=document.querySelector ("#date");
+let iconElement=document.querySelector ("#icon")
+
 
 temperatureElement.innerHTML=Math.round(response.data.main.temp);
-cityElement.innerHTML=response.data.main.name;
+cityElement.innerHTML=response.data.name;
 descriptionElement.innerHTML=response.data.weather[0].description;
 humidityElement.innerHTML=response.data.main.humidity;
 windElement.innerHTML=response.data.wind.speed;
 dateElement.innerHTML=formatDate (response.data.dt*1000)
-
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`); 
+iconElement.setAttribute("alt", response.data.weather[0].description)
 
   }
-  let city = "New York";
-  let units = "metric";
+
+
+function search(city){
+
+let units = "metric";
+
   let apiKey = "34ab83f78081d8121e2f9a19e2f4db72";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&APPID=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayTemperature);
+}
+
+  
+
+  function handleSubmit(event){
+event.preventDefault();
+let cityInputElement = document.querySelector("#city-input");
+search (cityInputElement.value);
+
+  }
+
+s
+  let form=document.querySelector("#search-form");
+  form.addEventListener("submit", handleSubmit);
+

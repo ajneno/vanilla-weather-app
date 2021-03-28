@@ -47,17 +47,19 @@ iconElement.setAttribute("alt", response.data.weather[0].description)
 function displayForecast (responset){
   
 let forecastElement = document.querySelector("#forecast");
+let forecast = response.data. list [0];
+console.log (response.data.list[0] ) ;
 forecastElement.innerHTML = ` 
 <div class="col-2">
     <h3>
       Sun
     </h3>
-    <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" />
+    <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"  alt="" />
     <div class="weather-forecast-temperature">
-      <strong> 22º </strong> 17º
+      <strong>${Math.round(forecast.main.temp_max)}º </strong> ${Math.round(forecast.main.temp_min)}º;
     </div>
   </div>`
-console.log (response.data.list[0] ) ;
+
 
 }
 
